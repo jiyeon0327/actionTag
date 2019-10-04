@@ -20,6 +20,14 @@
 		String name="유병승";
 		int su=19;
 		int su2=40;
+		
+		//< >은 제네릭표현식 쓴거 오류가 나기 때문에~~
+		java.util.List<action.model.vo.Person> list=new java.util.ArrayList();
+		list.add(new action.model.vo.Person("강보승",24,"남"));
+		list.add(new action.model.vo.Person("기영성",30,"남"));
+		request.setAttribute("list",list);
+		
+		
 		//request.setAttribute("name", name);//이렇게 공유객체에 넣어줘야만 밑에 p태그처럼 불러올수 있음
 		session.setAttribute("name", name);
 		//request,session 모두 찾을수 있음
@@ -47,6 +55,47 @@
 	<p>곱하기:${su * su2}</p>	
 	<p>나머지:${su%su2 }</p>
 	<p>나머지:${su mod su2 }</p>
+	
+	<br>
+	<h4>비교연산</h4>
+	<p>1)동등비고</p>
+	<p>${su==su2 }</p>
+	<p>${su==19 }</p>
+	<p>${su eq su2 }</p>
+	<p>2)대소비교</p>
+	<p>${su>su2 }</p>
+	<p>${su<su2 }</p>
+	<p>lt(<): ${su lt su2 }</p>
+	<p>gt(>): ${su gt s2 }</p>
+	<p>!= : ${su != s2 }</p>
+	<p>ne(not eq) : ${su ne s2 }</p>
+	
+	<br>
+	<h4>논리연산(and/or)</h4>
+	<p>${su ne su2 and name=="유병승" }</p>
+	<p>${su ne su2 or name!="유병승" }</p>
+	<!--JSTL은 IF문 FOR문 CHOOSE문은 진위 여부 판단을 해야함(이 앞에서 배운 논리,비교연산을 이용)  -->
+	<%-- <c:if test="$   {name !=null }"> --%>
+	<%-- <c:if test="$      {not empty null }"> -- 위와 아래와 비슷하다%>
+		<p>출력해!!</p>
+	</c:if>	
+			--%>
+	<p>list가 널인지 확인: ${empty list}</p>
+	<p>list가 널인지 확인: ${not empty list}</p>
+	<!-- 객체가 갖고있는 function도 사용가능함 -->
+	<p>list가 널인지 확인: ${list.size()>0}</p>
+
+
+	<br>
+	<p>EL로 접근하기</p>
+	<p>${list }</p>
+	<p>${list.get(0) }</p>
+	<p>${list.get(0)["name"] eq "강보승"}</p>
+	생일축하해!
+	
+	
+	
+	
 	
 </body>
 </html>
