@@ -27,7 +27,7 @@
 			<li>notice</li>
 			<li>board</li>
 		</ul>
-		<h3><%=request.getParameter("title") %></h3><!--name값이 title이니까   -->
+		<h3>${param.title}</h3><!--name값이 title이니까   -->
 	</header>
 
 	

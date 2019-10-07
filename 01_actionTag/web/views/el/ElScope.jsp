@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="<%=request.getContextPath() %>/useBeanTest">useBeanTest</a>
+	<a href="${pageContext.request.contextPath }/elscope">EL테스트</a>
 </body>
 </html>
-

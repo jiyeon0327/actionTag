@@ -9,11 +9,11 @@
 <body>
 	<h1>기본 EL표현식 활용하기!</h1>
 	<!-- 1.${ value }: value는 공유객체(session,application,request:데이터를 보관하는 객체)인 key값을 써야 함 /parameter도 이런식으로 
-		$  {param.value()} == $  {param.["key"]}
+		$  {param.value()} == $  {param.["key"]}->[]를 더 선호함
 		2.{}안에 연산자 사용 가능 (el안에 if의 조건식을 쓸때 이용함)
 		3.연산자 우선순위:3항연산자도 있음
 		4.공유객체에 대해서 자동으로 순회해서  제일 작은것부터 확장돼서 key값 일치하는 것을 갖고옴,
-		그런데 동일한 객체일때는 바로 session scope 이런식으로 갖고옴=>el 내장객체
+		그런데 동일한 객체일때는 바로 scope:session 이런식으로 갖고옴=>el 내장객체
 		=>객체의 생존주기 크기 (범위) 순: application(context)>session>request>page
 -->
 	<%
@@ -50,7 +50,7 @@
 	<p>변수만 이용더하기:${su+su2 }</p>
 	<p>빼기 :${su-su2}</p>
 	<p>나누기:${su/su2}</p>
-	<!--중간에  문자를 쓸 때 띄어쓰기 -->
+	<!--명령어는 문자를 쓸 때 띄어쓰기 -->
 	<p>나누기:${su div su2 }</p>
 	<p>곱하기:${su * su2}</p>	
 	<p>나머지:${su%su2 }</p>
